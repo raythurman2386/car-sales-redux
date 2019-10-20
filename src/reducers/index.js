@@ -18,12 +18,22 @@ const initialState = {
 }
 
 export const reducer = (state = initialState, action) => {
-  console.log(action)
+  // console.log(action)
   switch (action.type) {
     case REMOVE_FEATURE:
+      // Remove will have an id of the item that needs removed
       return state
     case BUY_ITEM:
-      return state
+      return {
+        ...state,
+        additionalPrice: (state.additionalPrice += action.payload.price),
+        car: {
+          ...state.car,
+          features: [...state.car.features, action.payload]
+        }
+      }
+    // When you buy the item you're buying is passed into the action
+    // The new feature will be added to the car.features array
     default:
       return state
   }
