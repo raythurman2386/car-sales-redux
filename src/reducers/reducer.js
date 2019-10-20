@@ -1,3 +1,5 @@
+import { REMOVE_FEATURE, BUY_ITEM } from '../actions/actions'
+
 const initialState = {
   additionalPrice: 0,
   car: {
@@ -18,6 +20,10 @@ const initialState = {
 export const reducer = (state = initialState, action) => {
   console.log(action)
   switch (action.type) {
+    case REMOVE_FEATURE:
+      return state
+    case BUY_ITEM:
+      return state
     default:
       return state
   }
