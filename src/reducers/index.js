@@ -22,7 +22,18 @@ export const reducer = (state = initialState, action) => {
   switch (action.type) {
     case REMOVE_FEATURE:
       // Remove will have an id of the item that needs removed
-      return state
+      const updatedFeatures = state.car.features.filter(
+        feature => feature.id !== action.payload.id
+      )
+      return {
+        ...state,
+        additionalPrice: (state.additionalPrice -= action.payload.price),
+        car: {
+          ...state.car,
+          features: updatedFeatures
+        }
+      }
+
     case BUY_ITEM:
       return {
         ...state,
