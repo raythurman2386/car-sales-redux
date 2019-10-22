@@ -9,8 +9,8 @@ const AddedFeatures = () => {
   const dispatch = useDispatch()
 
   return (
-    <div className='content'>
-      <h6>Added features:</h6>
+    <div className='card-content'>
+      <h6 className='title is-4'>Added features:</h6>
       {car.features.length ? (
         <ol type='1'>
           {car.features.map(item => (
