@@ -10,7 +10,7 @@ const AddedFeatures = () => {
 
   return (
     <div className='card-content'>
-      <h6 className='title is-4'>Added features:</h6>
+      <h6 className='title is-5'>Added features:</h6>
       {car.features.length ? (
         <ol type='1'>
           {car.features.map(item => (
