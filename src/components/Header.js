@@ -6,11 +6,13 @@ const Header = () => {
 
   return (
     <>
-      <figure className='image is-128x128'>
+      <figure className='card-image'>
         <img src={car.image} alt={car.name} />
       </figure>
-      <h2>{car.name}</h2>
-      <p>Amount: ${car.price}</p>
+      <div className='card-header'>
+        <h2 className='card-header-title'>{car.name}</h2>
+        <p className='card-header-title'>Amount: ${car.price}</p>
+      </div>
     </>
   )
 }
