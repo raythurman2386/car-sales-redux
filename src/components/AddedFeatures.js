@@ -1,8 +1,15 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import { removeFeature } from '../actions'
 
 import AddedFeature from './AddedFeature'
 
 const AddedFeatures = props => {
+  const removeFeature = item => {
+    // dispatch an action here to remove an item
+    props.removeFeature(item)
+  }
+
   return (
     <div className='content'>
       <h6>Added features:</h6>
@@ -11,7 +18,7 @@ const AddedFeatures = props => {
           {props.car.features.map(item => (
             <AddedFeature
               key={item.id}
-              removeFeature={props.removeFeature}
+              removeFeature={removeFeature}
               feature={item}
             />
           ))}
@@ -23,4 +30,13 @@ const AddedFeatures = props => {
   )
 }
 
-export default AddedFeatures
+const mapStateToProps = state => {
+  return {
+    car: state.car
+  }
+}
+
+export default connect(
+  mapStateToProps,
+  { removeFeature }
+)(AddedFeatures)
