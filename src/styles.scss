@@ -19,7 +19,7 @@ body {
 .box {
   display: flex;
   flex-direction: column;
-  height: auto;
+  height: fixed;
   h1 {
     font-size: 20px;
     margin: 0 0 1rem 0;
