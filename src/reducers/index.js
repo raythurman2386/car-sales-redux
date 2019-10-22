@@ -31,7 +31,8 @@ export const reducer = (state = initialState, action) => {
         car: {
           ...state.car,
           features: updatedFeatures
-        }
+        },
+        additionalFeatures: [...state.additionalFeatures, action.payload]
       }
 
     case BUY_ITEM:
