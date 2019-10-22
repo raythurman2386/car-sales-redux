@@ -36,7 +36,9 @@ export const reducer = (state = initialState, action) => {
 
     case BUY_ITEM:
       return {
-        ...state,
+        additionalFeatures: state.additionalFeatures.filter(
+          feature => feature.id !== action.payload.id
+        ),
         additionalPrice: (state.additionalPrice += action.payload.price),
         car: {
           ...state.car,
