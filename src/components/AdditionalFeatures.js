@@ -1,16 +1,11 @@
 import React from 'react'
-import { connect, useSelector } from 'react-redux'
-import { buyItem } from '../actions'
+import { useSelector, useDispatch } from 'react-redux'
+import { BUY_ITEM } from '../actions'
 import AdditionalFeature from './AdditionalFeature'
 
 const AdditionalFeatures = props => {
   const additionalFeatures = useSelector(state => state.additionalFeatures)
-
-  const buyItem = item => {
-    // dipsatch an action here to add an item
-    // e.preventDefault()
-    props.buyItem(item)
-  }
+  const dispatch = useDispatch()
 
   return (
     <div className='content'>
@@ -18,7 +13,11 @@ const AdditionalFeatures = props => {
       {additionalFeatures.length ? (
         <ol type='1'>
           {additionalFeatures.map(item => (
-            <AdditionalFeature key={item.id} buyItem={buyItem} feature={item} />
+            <AdditionalFeature
+              key={item.id}
+              buyItem={() => dispatch({ type: BUY_ITEM, payload: item })}
+              feature={item}
+            />
           ))}
         </ol>
       ) : (
@@ -28,7 +27,4 @@ const AdditionalFeatures = props => {
   )
 }
 
-export default connect(
-  null,
-  { buyItem }
-)(AdditionalFeatures)
+export default AdditionalFeatures
