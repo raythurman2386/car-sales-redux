@@ -4,7 +4,7 @@ import { REMOVE_FEATURE } from '../actions'
 
 import AddedFeature from './AddedFeature'
 
-const AddedFeatures = props => {
+const AddedFeatures = () => {
   const car = useSelector(state => state.car)
   const dispatch = useDispatch()
 

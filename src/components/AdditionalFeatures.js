@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { BUY_ITEM } from '../actions'
 import AdditionalFeature from './AdditionalFeature'
 
-const AdditionalFeatures = props => {
+const AdditionalFeatures = () => {
   const additionalFeatures = useSelector(state => state.additionalFeatures)
   const dispatch = useDispatch()
 
