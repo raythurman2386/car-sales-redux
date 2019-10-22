@@ -1,9 +1,11 @@
 import React from 'react'
-import { connect } from 'react-redux'
+import { connect, useSelector } from 'react-redux'
 import { buyItem } from '../actions'
 import AdditionalFeature from './AdditionalFeature'
 
 const AdditionalFeatures = props => {
+  const additionalFeatures = useSelector(state => state.additionalFeatures)
+
   const buyItem = item => {
     // dipsatch an action here to add an item
     // e.preventDefault()
@@ -13,9 +15,9 @@ const AdditionalFeatures = props => {
   return (
     <div className='content'>
       <h4>Additional Features</h4>
-      {props.additionalFeatures.length ? (
+      {additionalFeatures.length ? (
         <ol type='1'>
-          {props.additionalFeatures.map(item => (
+          {additionalFeatures.map(item => (
             <AdditionalFeature key={item.id} buyItem={buyItem} feature={item} />
           ))}
         </ol>
@@ -26,13 +28,7 @@ const AdditionalFeatures = props => {
   )
 }
 
-const mapStateToProps = state => {
-  return {
-    additionalFeatures: state.additionalFeatures
-  }
-}
-
 export default connect(
-  mapStateToProps,
+  null,
   { buyItem }
 )(AdditionalFeatures)
