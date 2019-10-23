@@ -1,11 +1,9 @@
 import React from 'react'
-import { useSelector, useDispatch } from 'react-redux'
-import { BUY_ITEM } from '../actions'
+import { useSelector } from 'react-redux'
 import AdditionalFeature from './AdditionalFeature'
 
 const AdditionalFeatures = () => {
   const additionalFeatures = useSelector(state => state.additionalFeatures)
-  const dispatch = useDispatch()
 
   return (
     <div className='content'>
@@ -13,11 +11,7 @@ const AdditionalFeatures = () => {
       {additionalFeatures.length ? (
         <ol type='1'>
           {additionalFeatures.map(item => (
-            <AdditionalFeature
-              key={item.id}
-              buyItem={() => dispatch({ type: BUY_ITEM, payload: item })}
-              feature={item}
-            />
+            <AdditionalFeature key={item.id} feature={item} />
           ))}
         </ol>
       ) : (
