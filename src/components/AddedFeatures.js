@@ -1,12 +1,10 @@
 import React from 'react'
-import { useSelector, useDispatch } from 'react-redux'
-import { REMOVE_FEATURE } from '../actions'
+import { useSelector } from 'react-redux'
 
 import AddedFeature from './AddedFeature'
 
 const AddedFeatures = () => {
   const car = useSelector(state => state.car)
-  const dispatch = useDispatch()
 
   return (
     <div className='card-content'>
@@ -14,13 +12,7 @@ const AddedFeatures = () => {
       {car.features.length ? (
         <ol type='1'>
           {car.features.map(item => (
-            <AddedFeature
-              key={item.id}
-              removeFeature={() =>
-                dispatch({ type: REMOVE_FEATURE, payload: item })
-              }
-              feature={item}
-            />
+            <AddedFeature key={item.id} feature={item} />
           ))}
         </ol>
       ) : (
